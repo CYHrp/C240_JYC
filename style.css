@@ -1,0 +1,179 @@
+/* IDKFood Website Stylesheet */
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #fffaf5;
+  color: #333;
+}
+
+header {
+  background: #ff8906;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+header img {
+  width: 120px;
+  height: 100px;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 12px #fff;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #222;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px rgba(255, 137, 6, 0.08);
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+ul li {
+  margin: 0.5rem 0;
+}
+
+.faq-item {
+  margin-bottom: 1.5rem;
+}
+
+.faq-item h3 {
+  color: #ff8906;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  background: #fff3ea;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Chatbot Section */
+
+#chatbot-section {
+  background: #fff6ee;
+  padding: 1.5rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(255, 137, 6, 0.2);
+  margin-top: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chatbot-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px #ff890655;
+}
+
+.chat-msg {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  max-width: 85%;
+  font-size: 1rem;
+  background: #fdfdfd;
+  border: 1px solid #ffdfc7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.chat-msg.user {
+  background: #ffe5cc;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.chat-msg.bot {
+  background: #fff;
+  align-self: flex-start;
+  text-align: left;
+  margin-right: auto;
+}
+
+#chat-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+}
+
+button[type="submit"] {
+  background: #ff8906;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: #e87600;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  header {
+    padding: 1.2rem 0.5rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  #chatbot-section {
+    padding: 1rem;
+  }
+}
