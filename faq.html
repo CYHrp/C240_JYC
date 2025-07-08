@@ -1,98 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IDKFood FAQ</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2838/2838912.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IDKFood – FAQ</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2838/2838912.png"/>
 </head>
 <body>
-  <header style="position:relative;text-align:center;padding-top:1.5rem;">
-    <img src="images/logo.jpg" alt="IDKFood Logo" style="width:140px;height:110px;border-radius:1.5rem;box-shadow:0 2px 12px #ffa72655;object-fit:cover;display:block;margin:0 auto 0.5rem auto;">
-    <p>Let AI decide your next meal</p>
-    <nav style="margin-top:1rem;">
-      <a href="/">Home</a>
+
+  <!-- Header -->
+  <header>
+    <img src="images/logo.jpg" alt="IDKFood Logo" />
+    <nav>
       <a href="#chatbot-section">Try Bot</a>
       <a href="faq.html">FAQ</a>
       <a href="about.html">About</a>
+      <a href="/" class="cta">Home</a>
     </nav>
   </header>
-  <main>
-    <h2 style="text-align:center;margin-top:2rem;">Frequently Asked Questions</h2>
-    <div id="faq-list" style="max-width:800px;margin:1rem auto;padding:0 1rem;">
-      <div class="faq-item"><h3>What is IDKFood?</h3><p>IDKFood is an AI-powered chatbot designed to help you decide what to eat based on your mood, cravings, dietary restrictions, and location.</p></div>
-      <div class="faq-item"><h3>How does the AI decide what food to suggest?</h3><p>The chatbot interprets your natural language input and maps it to our food recommendation database, learning from your preferences over time.</p></div>
-      <div class="faq-item"><h3>What types of food can it suggest?</h3><p>Anything from "something spicy but healthy" to "Korean comfort food nearby"—you name it!</p></div>
-      <div class="faq-item"><h3>Can I use it to find nearby restaurants?</h3><p>Yes, integration with maps and food delivery platforms is planned in future releases.</p></div>
-    </div>
 
-    <section id="chatbot-section">
-      <h3 style="margin-bottom:1rem;display:flex;align-items:center;gap:0.7rem;">
-        <img src="images/logo.jpg"" alt="FoodBot" class="chatbot-avatar" style="width:40px;height:40px;border-radius:50%;"> Ask IDKBot 🍜
-      </h3>
+  <!-- FAQ Section -->
+  <section class="hero">
+    <h1>Frequently Asked Questions</h1>
+    <p>Everything you need to know about how IDKFood helps you decide what to eat.</p>
+  </section>
+
+  <main style="max-width:800px; margin: 0 auto; padding: 2rem 1rem;">
+    <div class="faq-item">
+      <h3>What is IDKFood?</h3>
+      <p>IDKFood is an AI-powered chatbot designed to help you decide what to eat based on your mood, cravings, dietary restrictions, and location.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How does the AI decide what food to suggest?</h3>
+      <p>The chatbot interprets your natural language input and maps it to our food recommendation database, learning from your preferences over time.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What types of food can it suggest?</h3>
+      <p>Anything from “something spicy but healthy” to “Korean comfort food nearby” – you name it!</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use it to find nearby restaurants?</h3>
+      <p>Yes, integration with maps and food delivery platforms is planned in future releases.</p>
+    </div>
+  </main>
+
+  <!-- Chatbot Section -->
+  <section id="chatbot-section">
+    <div class="chat-wrapper">
+      <h3><img src="images/logo.jpg" alt="Bot" class="chatbot-avatar" /> Ask IDKBot</h3>
       <div id="chat-messages"></div>
-      <form id="chat-form" style="display:flex;gap:0.5rem;margin-top:1rem;">
+      <form id="chat-form">
         <input id="chat-input" type="text" placeholder="e.g. I want something spicy but healthy" required />
         <button type="submit">Send</button>
       </form>
       <div id="chat-error"></div>
-    </section>
-  </main>
-  
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     &copy; 2025 IDKFood. Smart meals, simple choices.
   </footer>
 
-    <script>
-      async function query(data) {
-        const response = await fetch(
-          "https://Jsly25-flowise.hf.space/api/v1/prediction/ac0202dd-d4a6-4454-8ca3-f5073935329c",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-          }
-        );
-        return await response.json();
-      }
+  <!-- Script -->
+  <script>
+    async function query(data) {
+      const response = await fetch(
+        "https://Jsly25-flowise.hf.space/api/v1/prediction/ac0202dd-d4a6-4454-8ca3-f5073935329c",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        }
+      );
+      return await response.json();
+    }
 
-      function renderMarkdown(md) {
-        return md.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
-                 .replace(/\*(.*?)\*/g, '<i>$1</i>')
-                 .replace(/`([^`]+)`/g, '<code>$1</code>')
-                 .replace(/\n/g, '<br>');
-      }
+    function renderMarkdown(md) {
+      return md
+        .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
+        .replace(/\*(.*?)\*/g, '<i>$1</i>')
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\n/g, '<br>');
+    }
 
-      document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('chat-form');
-        const input = document.getElementById('chat-input');
-        const messages = document.getElementById('chat-messages');
-        const errorDiv = document.getElementById('chat-error');
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('chat-form');
+      const input = document.getElementById('chat-input');
+      const messages = document.getElementById('chat-messages');
+      const errorDiv = document.getElementById('chat-error');
 
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const userMsg = input.value.trim();
-          if (!userMsg) return;
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const userMsg = input.value.trim();
+        if (!userMsg) return;
 
-          messages.innerHTML += `<div class='chat-msg user'><b>You:</b> ${userMsg}</div>`;
-          input.value = '';
-          errorDiv.textContent = '';
+        messages.innerHTML += `<div class='chat-msg user'>You: ${userMsg}</div>`;
+        input.value = '';
+        errorDiv.textContent = '';
 
-          try {
-            messages.innerHTML += `<div class='chat-msg bot' style='color:#888;'>IDKBot is thinking...</div>`;
-            const response = await query({ question: userMsg });
-            const botMsg = response.text || "Sorry, I couldn't figure that out.";
-            messages.innerHTML = messages.innerHTML.replace('IDKBot is thinking...', '');
-            messages.innerHTML += `<div class='chat-msg bot'><b>IDKBot:</b> ${renderMarkdown(botMsg)}</div>`;
-            messages.scrollTop = messages.scrollHeight;
-          } catch (err) {
-            errorDiv.textContent = 'Something went wrong while contacting IDKBot.';
-          }
-        });
+        try {
+          messages.innerHTML += `<div class='chat-msg bot'>IDKBot is thinking...</div>`;
+          const response = await query({ question: userMsg });
+          const botMsg = response.text || "Sorry, I couldn't figure that out.";
+          messages.innerHTML = messages.innerHTML.replace('IDKBot is thinking...', '');
+          messages.innerHTML += `<div class='chat-msg bot'>IDKBot: ${renderMarkdown(botMsg)}</div>`;
+          messages.scrollTop = messages.scrollHeight;
+        } catch (err) {
+          errorDiv.textContent = 'Something went wrong while contacting IDKBot.';
+        }
       });
-    </script>
+    });
+  </script>
+
 </body>
 </html>
